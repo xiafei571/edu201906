@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="edu201906.spring.model.mapper.PlayerMapper">
+	<resultMap type="edu201906.spring.domain.PlayerInfo"
+		id="playerResultMap">
+		<id property="pid" column="pid" />
+		<result property="pname" column="pname" />
+		<result property="photo" column="photo" />
+		<result property="cid" column="cid" />
+		<result property="nid" column="nid" />
+		<result property="overall" column="overall" />
+	</resultMap>
+</mapper>
+
