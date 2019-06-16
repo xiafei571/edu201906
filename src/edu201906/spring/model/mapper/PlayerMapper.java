@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 
+import edu201906.spring.domain.ClubInfo;
+import edu201906.spring.domain.NationInfo;
 import edu201906.spring.domain.PlayerInfo;
 
 public interface PlayerMapper {
@@ -22,4 +24,9 @@ public interface PlayerMapper {
 	@Select("SELECT COUNT(*) FROM players")
 	Integer getPlayerCount();
 
+	@Select("SELECT cid, cname, logo FROM club")
+	List<ClubInfo> getClubList();
+
+	@Select("select nid, nation, flag FROM nation")
+	List<NationInfo> getNationList();
 }

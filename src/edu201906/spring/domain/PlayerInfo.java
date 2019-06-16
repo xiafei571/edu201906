@@ -16,6 +16,26 @@ public class PlayerInfo {
 	// 能力值
 	private Integer overall;
 
+	private ClubInfo club;
+
+	private NationInfo nation;
+
+	public ClubInfo getClub() {
+		return club;
+	}
+
+	public void setClub(ClubInfo club) {
+		this.club = club;
+	}
+
+	public NationInfo getNation() {
+		return nation;
+	}
+
+	public void setNation(NationInfo nation) {
+		this.nation = nation;
+	}
+
 	public Integer getRowid() {
 		return rowid;
 	}

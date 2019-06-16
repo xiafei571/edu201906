@@ -12,5 +12,19 @@
 		<result property="nid" column="nid" />
 		<result property="overall" column="overall" />
 	</resultMap>
+	
+	   <resultMap type="edu201906.spring.domain.ClubInfo"
+        id="clubResultMap">
+        <id property="cid" column="cid" />
+        <result property="cname" column="cname" />
+        <result property="logo" column="logo" />
+      </resultMap>
+      
+       <resultMap type="edu201906.spring.domain.NationInfo"
+        id="nationResultMap">
+        <id property="nid" column="nid" />
+        <result property="name" column="nation" />
+        <result property="flag" column="flag" />
+      </resultMap>
 </mapper>
 

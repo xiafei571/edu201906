@@ -32,6 +32,8 @@
 						<th scope="col">#</th>
 						<th scope="col">球员名称</th>
 						<th scope="col">照片</th>
+						<th scope="col">俱乐部</th>
+						<th scope="col">国籍</th>
 						<th scope="col">能力</th>
 						<th scope="col">操作</th>
 					</tr>
@@ -42,6 +44,9 @@
 							<th scope="row">${list.rowid}</th>
 							<td>${list.pname}</td>
 							<td><img src="${list.photo}" alt="${list.pname}" /></td>
+							<td><img src="${list.club.logo}" alt="${list.club.cname}" /></td>
+							<td><img src="${list.nation.flag}" alt="${list.nation.name}" /></td>
+
 							<td>${list.overall}</td>
 							<td><a href="${list.pid}/show">查看</a> <a href="#">修改</a> <a
 								href="#" onClick="return confirm('确定删除${list.pname}吗?');">删除</a></td>

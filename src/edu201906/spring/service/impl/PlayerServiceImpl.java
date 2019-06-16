@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu201906.spring.init.InitInfo;
 import edu201906.common.page.Pagination;
 import edu201906.common.page.PaginationResult;
 import edu201906.spring.domain.PlayerInfo;
@@ -29,6 +30,11 @@ public class PlayerServiceImpl implements PlayerService {
 		pagination.setTotalCount(count);
 
 		List<PlayerInfo> playerList = playerMapper.getPlayerPage(pagination.getCursor(), pagination.getOffset());
+		for (PlayerInfo player : playerList) {
+			player.setClub(InitInfo.club.get(player.getCid()));
+			player.setNation(InitInfo.nation.get(player.getNid()));
+		}
+
 		PaginationResult<List<PlayerInfo>> result = new PaginationResult<List<PlayerInfo>>(pagination, playerList);
 		return result;
 	}
