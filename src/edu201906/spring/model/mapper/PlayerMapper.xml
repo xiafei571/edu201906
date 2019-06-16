@@ -4,7 +4,8 @@
 <mapper namespace="edu201906.spring.model.mapper.PlayerMapper">
 	<resultMap type="edu201906.spring.domain.PlayerInfo"
 		id="playerResultMap">
-		<id property="pid" column="pid" />
+		<id property="rowid" column="rowid" />
+		<result property="pid" column="pid" />
 		<result property="pname" column="pname" />
 		<result property="photo" column="photo" />
 		<result property="cid" column="cid" />
