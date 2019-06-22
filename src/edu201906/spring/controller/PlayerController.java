@@ -1,5 +1,6 @@
 package edu201906.spring.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,26 @@ public class PlayerController {
 	public PlayerInfo getPlayer(@PathVariable Integer id) {
 		PlayerInfo player = playerService.getPlayer(id);
 		return player;
+	}
+
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String getPlayerList(ModelMap modelMap, Integer pageIndex, Integer pageSize) {
+		String s = "index:" + pageIndex;
+		modelMap.put("msg", s);
+		
+		String ss = "size:" + pageSize;
+		modelMap.put("abc", ss);
+		
+		List<PlayerInfo> list = playerService.getPlayerList(pageSize);
+		
+//		PlayerInfo p1 = playerService.getPlayer(158023);
+//		PlayerInfo p2 = playerService.getPlayer(183277);
+//		list.add(p1);
+//		list.add(p2);
+		
+		modelMap.put("list", list);
+		
+		return "index";
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)

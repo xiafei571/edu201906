@@ -22,4 +22,12 @@ public interface PlayerService {
 	 * @return
 	 */
 	PaginationResult<List<PlayerInfo>> getPlayerList(Integer pageIndex, Integer pageSize);
+
+	/**
+	 * 获取一定数量的球员
+	 * 
+	 * @param pageSize
+	 * @return
+	 */
+	List<PlayerInfo> getPlayerList(Integer pageSize);
 }
