@@ -15,9 +15,9 @@ public class PlayerInfo {
 	private Integer nid;
 	// 能力值
 	private Integer overall;
-
+	//俱乐部信息
 	private ClubInfo club;
-
+	//国家信心
 	private NationInfo nation;
 
 	public ClubInfo getClub() {

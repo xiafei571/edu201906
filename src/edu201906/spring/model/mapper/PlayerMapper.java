@@ -16,7 +16,11 @@ public interface PlayerMapper {
 	@Select("SELECT " + COLUMN + " FROM players WHERE pid = #{id}")
 	@ResultMap("playerResultMap")
 	PlayerInfo getPlayer(@Param("id") Integer id);
-
+	
+	@Select("SELECT cid,cname,logo FROM club WHERE cid = #{id}")
+	@ResultMap("clubResultMap")
+	ClubInfo getClub(@Param("id") Integer id);
+	
 	@Select("SELECT " + COLUMN + " FROM players ORDER BY rowId LIMIT #{cursor}, #{offset}")
 	@ResultMap("playerResultMap")
 	List<PlayerInfo> getPlayerPage(@Param("cursor") Integer cursor, @Param("offset") Integer offset);

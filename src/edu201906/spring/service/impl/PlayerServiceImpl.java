@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import edu201906.spring.init.InitInfo;
 import edu201906.common.page.Pagination;
 import edu201906.common.page.PaginationResult;
+import edu201906.spring.domain.ClubInfo;
+import edu201906.spring.domain.NationInfo;
 import edu201906.spring.domain.PlayerInfo;
 import edu201906.spring.model.mapper.PlayerMapper;
 import edu201906.spring.service.PlayerService;
@@ -20,7 +22,16 @@ public class PlayerServiceImpl implements PlayerService {
 
 	@Override
 	public PlayerInfo getPlayer(Integer id) {
-		return playerMapper.getPlayer(id);
+		PlayerInfo player = playerMapper.getPlayer(id);
+
+		// TODO 根据cid 去查俱乐部ClubInfo的信息
+		ClubInfo club = playerMapper.getClub(player.getCid());
+		player.setClub(club);
+
+		// TODO 根据nid 去查国家NationInfo信息
+		NationInfo nation = null;
+		player.setNation(nation);
+		return player;
 	}
 
 	@Override
