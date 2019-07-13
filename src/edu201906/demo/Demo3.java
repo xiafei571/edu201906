@@ -16,18 +16,18 @@ public class Demo3 {
 		if (n < 0 || m <= 0)
 			return 0;
 
-		int sum = 0;
+		int count = 0;
 
 		if (m >= C[n]) {
-			sum = m / C[n];
+			count = m / C[n];
 			if (m % C[n] > 0) {
-				sum += calcT(n - 1, m % C[n]);
+				count += calcT(n - 1, m % C[n]);
 			}
 		} else {
 			return calcT(n - 1, m);
 		}
 
-		return sum;
+		return count;
 	}
 
 	/*
