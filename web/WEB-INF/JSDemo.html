@@ -2,55 +2,68 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <title>JS Demo</title>
 </head>
 <body>
-    <h1>我的第一个标题</h1>
-    <p>我的第一个段落。</p>
+	<h1>我的第一个标题</h1>
+	<p>我的第一个段落。</p>
 
 
-		十进制: <input type="text" name="firstname" id="first"><br>
-		二进制: <input type="text" name="lastname" id="last"><br>
-		<button onclick="ten2binary()">转换</button>
+	十进制:
+	<input type="text" name="firstname" id="first"><br> 
+	二进制:
+	<input type="text" name="lastname" id="last"><br>
+	<button>转换</button>
+
+	<script type="text/javascript">
+		$("button").click(function() {
+			ten2binary();
+		});
+	</script>
 
 
 	<script type="text/javascript">
-
-		function ten2binary(){
+		function ten2binary() {
 			//获取十进制输入框内的值
-			var i = document.getElementById("first").value;
+			//var i = document.getElementById("first").value;
+			var i = $("#first").val();
 
-			if(isNotNumber(i)){
+			if (isNotNumber(i)) {
 				alert("输入非法");
-				document.getElementById("last").value = "";
+				//document.getElementById("last").value = "";
+				$("#last").val("");
+				$("#first").focus();
 				return;
 			}
 
 			//如果输入的是0或者空，则输出0
-			if(i== null || i == 0){
-				document.getElementById("last").value = 0;
-			}else{
+			if (i == null || i == 0) {
+				//document.getElementById("last").value = 0;
+				$("#last").val(0);
+			} else {
 				//创建数组来接结果集
 				var arry = new Array();
 
-			while(i > 0){
-				arry.push(i % 2);
-				i = parseInt(i / 2);
-			}
+				while (i > 0) {
+					arry.push(i % 2);
+					i = parseInt(i / 2);
+				}
 
-			document.getElementById("last").value = arry.reverse().join("");
-		}	
+				//document.getElementById("last").value = arry.reverse().join("");
+				$("#last").val(arry.reverse().join(""))
+				$("#last").focus();
+			}
 		}
 
-		function isNumber(str){
+		function isNumber(str) {
 			var reg = /^[0-9]{1,6}$/;
 			return reg.test(str);
 		}
 
-		function isNotNumber(str){
+		function isNotNumber(str) {
 			return !isNumber(str);
 		}
-
 	</script>
 
 
