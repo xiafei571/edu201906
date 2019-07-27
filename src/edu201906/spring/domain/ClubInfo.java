@@ -3,9 +3,9 @@ package edu201906.spring.domain;
 public class ClubInfo {
 
 	private Integer cid;
-	
+
 	private String cname;
-	
+
 	private String logo;
 
 	public Integer getCid() {
@@ -31,4 +31,16 @@ public class ClubInfo {
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
+
+	public ClubInfo(Integer cid, String cname, String logo) {
+		super();
+		this.cid = cid;
+		this.cname = cname;
+		this.logo = logo;
+	}
+
+	public ClubInfo() {
+
+	}
+
 }

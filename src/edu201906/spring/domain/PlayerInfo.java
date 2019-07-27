@@ -112,4 +112,12 @@ public class PlayerInfo {
 
 	public PlayerInfo() {
 	}
+
+	public PlayerInfo(ClubInfo club, NationInfo nation) {
+		super();
+		this.club = club;
+		this.nation = nation;
+	}
+	
+	
 }
