@@ -1,12 +1,17 @@
 package edu201906.spring.service.impl;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSONArray;
+
 import edu201906.common.page.Pagination;
 import edu201906.common.page.PaginationResult;
+import edu201906.spring.domain.ChartInfo;
 import edu201906.spring.domain.ClubInfo;
 import edu201906.spring.domain.NationInfo;
 import edu201906.spring.domain.PlayerInfo;
@@ -57,14 +62,46 @@ public class PlayerServiceImpl implements PlayerService {
 
 		List<PlayerInfo> list = playerMapper.getPlayerList(pageSize);
 		for (PlayerInfo p : list) {
-			//性能问题-循环差数据库
-			//playerMapper.getClub(p.getCid())
+			// 性能问题-循环差数据库
+			// playerMapper.getClub(p.getCid())
 			p.setClub(InitInfo.club.get(p.getCid()));
-			//playerMapper.getNation(p.getNid())
+			// playerMapper.getNation(p.getNid())
 			p.setNation(InitInfo.nation.get(p.getNid()));
 		}
 
 		return list;
+	}
+
+	@Override
+	public List<ChartInfo> getNationDist(Integer cid) {
+		List<ChartInfo> list = playerMapper.getNationDist(cid);
+		for (ChartInfo chart : list) {
+			chart.setName(InitInfo.nation.get(chart.getId()).getName());
+		}
+		return list;
+	}
+
+	@Override
+	public JSONArray getPlayerWageJson(Integer cid) {
+		//s.subString(1,s.length()-1);
+		Pattern pattern = Pattern.compile("(\\d{1,5})");// (115).(5)
+
+		List<PlayerInfo> list = playerMapper.getPlayerListByCid(cid);
+		JSONArray result = new JSONArray();
+		
+		for (PlayerInfo player : list) {
+			JSONArray json = new JSONArray();
+			json.add(player.getOverall());
+			
+			Matcher matcher = pattern.matcher(player.getWage());
+			while(matcher.find()) {
+				json.add(matcher.group(1));
+				result.add(json);
+			}
+		}
+		
+		System.out.println(result.toJSONString());
+		return result;
 	}
 
 }

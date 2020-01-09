@@ -2,7 +2,10 @@ package edu201906.spring.service;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONArray;
+
 import edu201906.common.page.PaginationResult;
+import edu201906.spring.domain.ChartInfo;
 import edu201906.spring.domain.PlayerInfo;
 
 public interface PlayerService {
@@ -30,4 +33,8 @@ public interface PlayerService {
 	 * @return
 	 */
 	List<PlayerInfo> getPlayerList(Integer pageSize);
+
+	List<ChartInfo> getNationDist(Integer cid);
+	
+	JSONArray getPlayerWageJson(Integer cid);
 }

@@ -15,10 +15,20 @@ public class PlayerInfo {
 	private Integer nid;
 	// 能力值
 	private Integer overall;
-	//俱乐部信息
+	// 俱乐部信息
 	private ClubInfo club;
-	//国家信心
+	// 国家信息
 	private NationInfo nation;
+
+	private String wage;
+	
+	public String getWage() {
+		return wage;
+	}
+
+	public void setWage(String wage) {
+		this.wage = wage;
+	}
 
 	public ClubInfo getClub() {
 		return club;
@@ -118,6 +128,5 @@ public class PlayerInfo {
 		this.club = club;
 		this.nation = nation;
 	}
-	
-	
+
 }

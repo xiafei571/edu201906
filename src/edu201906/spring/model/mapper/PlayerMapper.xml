@@ -11,6 +11,7 @@
 		<result property="cid" column="cid" />
 		<result property="nid" column="nid" />
 		<result property="overall" column="overall" />
+		<result property="wage" column="wage" />
 	</resultMap>
 
 	<resultMap type="edu201906.spring.domain.ClubInfo"
@@ -26,5 +27,17 @@
 		<result property="name" column="nation" />
 		<result property="flag" column="flag" />
 	</resultMap>
+	
+	<resultMap type="edu201906.spring.domain.ChartInfo"
+        id="chartResultMap">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="value" column="value" />
+    </resultMap>
+
+	<select id="getNationDist" resultMap="chartResultMap">
+		select nid as id, count(*) as value from players where cid = #{cid} group by id order
+		by value desc
+	</select>
 </mapper>
 

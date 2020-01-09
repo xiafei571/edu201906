@@ -19,4 +19,14 @@ public class Demo1 {
 		System.out.println(qq == ss);
 
 	}
+	
+	public static int ten2Two(int n) {
+		StringBuilder sb = new StringBuilder();
+		while (n != 0) {
+			sb.append(n % 2);
+			n = n / 2;
+		}
+		sb.reverse();
+		return Integer.valueOf(sb.toString());
+	}
 }

@@ -16,37 +16,6 @@
 <title>首页</title>
 </head>
 <body>
-	<h1>Hello</h1>
-	<h2>World</h2>
-	<h3>${msg}</h3>
-	<h3>${abc}</h3>
-	<h4>${list}</h4>
-
-	<table border="1">
-		<thead>
-			<tr>
-				<th>1.PID</th>
-				<th>2.PNAME</th>
-				<th>3.PHOTO</th>
-				<th>4.FLAG</th>
-				<th>5.LOGO</th>
-				<th>6.OVERALL</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${list}" var="p">
-				<tr>
-					<td>${p.pid}</td>
-					<td>${p.pname}</td>
-					<td><img alt="photo" src="${p.photo}" /></td>
-					<td><img alt="photo" src="${p.club.logo}" /></td>
-					<td><img alt="photo" src="${p.nation.flag}" /></td>
-					<td>${p.overall}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-
 
 	<div class="container">
 		<!-- Content here -->

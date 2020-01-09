@@ -91,4 +91,10 @@ public class Pagination {
 		this.offset = offset;
 	}
 
+	public Pagination() {
+		super();
+	}
+	
+	
+
 }
